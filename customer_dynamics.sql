@@ -1,11 +1,11 @@
--- C.CUSTOMER ORDER DYNAMICS --
+                                                                     -- C.CUSTOMER ORDER DYNAMICS --
 
- 
  -- 1.For each customer, how many delivered rolls had atleast 1 change and how many had no change?--
  -- ( steps: Clean the tables without null values creating temp tables)--
 DROP TEMPORARY TABLE IF EXISTS temp_customer_orders ;
 create temporary table temp_customer_orders as 
-select order_id,customer_id,roll_id, case when not_include_items is null or not_include_items ='' then '0' else not_include_items end as new_notincluded_items,
+select order_id,customer_id,roll_id, 
+case when not_include_items is null or not_include_items ='' then '0' else not_include_items end as new_notincluded_items,
 case when extra_items_included is null or extra_items_included ='' or extra_items_included ='NaN' then '0' else extra_items_included end as new_extra_items_included, order_date from customer_orders;
 DROP TEMPORARY TABLE IF EXISTS temp_driver_order;
 create temporary table temp_driver_order as select order_id,driver_id,pickup_time,distance,duration, case when cancellation  in ('Cancellation','Customer Cancellation') then 1 else 0 end as cancellation_status from driver_order;
