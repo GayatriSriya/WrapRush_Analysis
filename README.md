@@ -6,5 +6,5 @@ Technologies Used:
 SQL: MySqlWorkBench
 
 Dataset:
-The dataset used in this project includes information about WrapRush's orders, roll types, and delivery times. It has been anonymized for privacy and includes synthetic data for the purpose of analysis.
+The dataset used in this project includes information about WrapRush's orders, roll types, and delivery times.
 
